@@ -1,4 +1,5 @@
 const gameField = document.querySelector('.game-field');
+
 const startButton = document.querySelector('.start-game');
 const winnerTag = document.querySelector('.winner-tag');
 const moves = document.querySelector('.moves');
@@ -19,6 +20,11 @@ class Game {
     };
 
     startGame() {
+        moves.innerText = this.counter;
+        const cards = document.querySelectorAll('.game-card');
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].remove()
+        }
         this.createField();
     }
 
