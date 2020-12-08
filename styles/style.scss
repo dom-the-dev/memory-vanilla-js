@@ -86,12 +86,12 @@ body {
 /* Style the front side (fallback if image is missing) */
 .game-card__content--front {
 	background-color: dodgerblue;
+	transform: rotateY(180deg);
 	color: white;
 }
 
 /* Style the back side */
 .game-card__content--back {
-	transform: rotateY(180deg);
 	background: #3a6186; /* fallback for old browsers */
 	background: -webkit-linear-gradient(
 		to left,
