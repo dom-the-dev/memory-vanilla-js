@@ -4,6 +4,20 @@
 }
 
 body {
+	color: rgba(255, 255, 255, 0.4);
+	background: #67b26f; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#4ca2cd,
+		#67b26f
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#4ca2cd,
+		#67b26f
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	font-family: Arial, Helvetica, sans-serif;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -11,11 +25,16 @@ body {
 	flex-direction: column;
 }
 
+.winner-tag {
+	display: none;
+	margin: 20px;
+}
+
 .game-field {
 	margin-top: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 520px;
+	max-width: 570px;
 }
 
 .game-card {
@@ -23,11 +42,8 @@ body {
 	perspective: 1000px;
 	border: 2px solid transparent;
 	width: 80px;
-	height: 80px;
-}
-
-.game-card--passed {
-	border-color: green;
+	height: 120px;
+	margin: 5px;
 }
 
 .game-card--passed .game-card__inner,
@@ -54,22 +70,61 @@ body {
 /* Position the front and back side */
 .game-card__content--front,
 .game-card__content--back {
+	box-sizing: border-box;
+	border: 2px solid #ffffff;
+	border-radius: 5px;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	-webkit-backface-visibility: hidden; /* Safari */
 	backface-visibility: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Style the front side (fallback if image is missing) */
 .game-card__content--front {
-	background-color: #bbb;
-	color: black;
+	background-color: dodgerblue;
+	transform: rotateY(180deg);
+	color: white;
 }
 
 /* Style the back side */
 .game-card__content--back {
-	background-color: dodgerblue;
+	background: #3a6186; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to left,
+		#89253e,
+		#3a6186
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to left,
+		#89253e,
+		#3a6186
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: black;
+}
+
+.start-game {
+	margin-top: 20px;
+	padding: 8px 12px;
+	outline: none;
+	border: none;
+	background-color: lightblue;
 	color: white;
-	transform: rotateY(180deg);
+	text-transform: uppercase;
+	font-weight: bold;
+	box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.25);
+	font-size: 22px;
+	transition: box-shadow 0.4s ease;
+	cursor: pointer;
+
+	&:hover {
+		box-shadow: none;
+	}
+}
+
+.counter {
+	display: none;
 }
